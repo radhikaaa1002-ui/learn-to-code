@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn HTML, CSS, JavaScript and Python with beginner-friendly lessons and quizzes.">
+  <title>CodeStart — Learn to Code</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="CodeStart home"><span class="brand-mark">&lt;/&gt;</span> CodeStart</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#courses">Courses</a><a href="#practice">Practice</a><a href="#progress">My Progress</a>
+    </nav>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
+  </header>
+
+  <main>
+    <section id="home" class="hero section-wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">YOUR CODING JOURNEY STARTS HERE</span>
+        <h1>Learn to code.<br><span>Build your future.</span></h1>
+        <p>Beginner-friendly lessons, examples, and quick quizzes to help you learn programming one step at a time.</p>
+        <div class="hero-actions"><a class="button primary" href="#courses">Explore courses <span>→</span></a><a class="button secondary" href="#practice">Try a quiz</a></div>
+        <div class="hero-stats"><div><strong>4</strong><span>Beginner courses</span></div><div><strong>12</strong><span>Learning topics</span></div><div><strong>Free</strong><span>Always to explore</span></div></div>
+      </div>
+      <div class="code-window" aria-label="Example code">
+        <div class="window-top"><span></span><span></span><span></span><small>hello-world.html</small></div>
+        <pre><code><span class="code-purple">&lt;!DOCTYPE html&gt;</span>
+<span class="code-blue">&lt;html&gt;</span>
+  <span class="code-blue">&lt;body&gt;</span>
+    <span class="code-pink">&lt;h1&gt;</span>Hello, coder!<span class="code-pink">&lt;/h1&gt;</span>
+    <span class="code-pink">&lt;p&gt;</span>My first webpage.<span class="code-pink">&lt;/p&gt;</span>
+    <span class="code-blue">&lt;button&gt;</span>
+      Start learning
+    <span class="code-blue">&lt;/button&gt;</span>
+  <span class="code-blue">&lt;/body&gt;</span>
+<span class="code-blue">&lt;/html&gt;</span></code></pre>
+        <div class="code-note"><span class="pulse"></span> Small steps. Real progress.</div>
+      </div>
+    </section>
+
+    <section id="courses" class="section-wrap section-block">
+      <div class="section-heading"><div><span class="eyebrow">CHOOSE YOUR PATH</span><h2>Explore courses</h2><p>Pick a language and start with the basics.</p></div><label class="search-box"><span aria-hidden="true">⌕</span><input id="courseSearch" type="search" placeholder="Search courses..." aria-label="Search courses"></label></div>
+      <div class="course-grid" id="courseGrid">
+        <article class="course-card" data-course="html" data-search="html website structure tags beginner">
+          <div class="course-icon html-icon">&lt;/&gt;</div><div class="course-meta"><span>BEGINNER</span><span>3 LESSONS</span></div><h3>HTML Essentials</h3><p>Build the structure of a web page using elements and tags.</p><div class="progress-track"><span id="bar-html"></span></div><div class="card-bottom"><span id="label-html">0 of 3 lessons</span><button class="text-button open-course" data-open="html">Start learning →</button></div>
+        </article>
+        <article class="course-card" data-course="css" data-search="css styles colors layout responsive design">
+          <div class="course-icon css-icon">✳</div><div class="course-meta"><span>BEGINNER</span><span>3 LESSONS</span></div><h3>CSS Foundations</h3><p>Style pages with colors, spacing, layouts, and responsive design.</p><div class="progress-track"><span id="bar-css"></span></div><div class="card-bottom"><span id="label-css">0 of 3 lessons</span><button class="text-button open-course" data-open="css">Start learning →</button></div>
+        </article>
+        <article class="course-card" data-course="javascript" data-search="javascript js interactive functions variables logic">
+          <div class="course-icon js-icon">JS</div><div class="course-meta"><span>BEGINNER</span><span>3 LESSONS</span></div><h3>JavaScript Basics</h3><p>Make web pages interactive with variables, functions, and events.</p><div class="progress-track"><span id="bar-javascript"></span></div><div class="card-bottom"><span id="label-javascript">0 of 3 lessons</span><button class="text-button open-course" data-open="javascript">Start learning →</button></div>
+        </article>
+        <article class="course-card" data-course="python" data-search="python programming print variables conditions">
+          <div class="course-icon python-icon">Py</div><div class="course-meta"><span>BEGINNER</span><span>3 LESSONS</span></div><h3>Python Starter</h3><p>Understand programming fundamentals with readable Python syntax.</p><div class="progress-track"><span id="bar-python"></span></div><div class="card-bottom"><span id="label-python">0 of 3 lessons</span><button class="text-button open-course" data-open="python">Start learning →</button></div>
+        </article>
+      </div>
+      <p id="noCourses" class="empty-state" hidden>No courses match that search. Try HTML, CSS, JavaScript, or Python.</p>
+    </section>
+
+    <section id="lessonArea" class="lesson-section" hidden>
+      <div class="section-wrap">
+        <div class="section-heading"><div><span class="eyebrow">LESSON ROOM</span><h2 id="lessonTitle">Course lessons</h2><p id="lessonIntro"></p></div><button class="button secondary" id="closeLesson" type="button">Close lessons ×</button></div>
+        <div class="lesson-layout"><div id="lessonList" class="lesson-list" aria-label="Lessons"></div><article class="lesson-content"><div class="lesson-topline"><span id="lessonNumber">LESSON 1</span><span class="tag">BEGINNER</span></div><h3 id="currentLessonTitle"></h3><div id="lessonBody"></div><div class="lesson-navigation"><button id="prevLesson" class="button secondary" type="button">← Previous</button><button id="completeLesson" class="button primary" type="button">Mark complete ✓</button><button id="nextLesson" class="button secondary" type="button">Next →</button></div><p id="lessonMessage" class="message" role="status"></p></article></div>
+      </div>
+    </section>
+
+    <section id="practice" class="section-wrap section-block">
+      <div class="section-heading"><div><span class="eyebrow">CHECK YOUR KNOWLEDGE</span><h2>Quick coding quiz</h2><p>Answer a few questions and see your score instantly.</p></div><span class="quiz-badge">✦ Practice makes progress</span></div>
+      <div class="quiz-card">
+        <div class="quiz-top"><span id="questionCounter">QUESTION 1 OF 5</span><span id="scorePreview">Score: 0</span></div>
+        <div class="quiz-progress"><span id="quizProgressBar"></span></div>
+        <h3 id="questionText"></h3>
+        <div id="answerOptions" class="answer-options"></div>
+        <p id="quizFeedback" class="quiz-feedback" role="status" aria-live="polite"></p>
+        <div class="quiz-actions"><button id="nextQuestion" class="button primary" type="button" disabled>Next question →</button><button id="restartQuiz" class="text-button" type="button">Restart quiz</button></div>
+      </div>
+    </section>
+
+    <section id="progress" class="section-wrap section-block">
+      <div class="progress-panel"><div><span class="eyebrow">YOUR LEARNING DASHBOARD</span><h2>Every lesson counts.</h2><p>Your completed lessons and best quiz score are saved in this browser.</p></div><div class="progress-numbers"><div><strong id="completedCount">0</strong><span>Lessons completed</span></div><div><strong id="bestScore">—</strong><span>Best quiz score</span></div><button id="resetProgress" class="text-button" type="button">Reset my progress</button></div></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><a class="brand footer-brand" href="#home"><span class="brand-mark">&lt;/&gt;</span> CodeStart</a><p>Learn something today. Build something tomorrow.</p><span>WAD PBL • Educational demo</span></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
